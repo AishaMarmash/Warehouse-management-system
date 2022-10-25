@@ -3,6 +3,6 @@
     public enum PackageType
     {
         Box,
-        cylinder
+        Cylinder
     }
 }
