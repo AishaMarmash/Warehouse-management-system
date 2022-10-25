@@ -1,0 +1,27 @@
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\appsettings.json
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Warehouse management system.exe
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Warehouse management system.deps.json
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Warehouse management system.runtimeconfig.json
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Warehouse management system.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Warehouse management system.pdb
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.csproj.AssemblyReference.cache
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.AssemblyInfoInputs.cache
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.AssemblyInfo.cs
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.csproj.CoreCompileInputs.cache
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\scopedcss\bundle\Warehouse management system.styles.css
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.csproj.CopyComplete
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\refint\Warehouse management system.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.pdb
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\Warehouse management system.genruntimeconfig.cache
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\ref\Warehouse management system.dll
