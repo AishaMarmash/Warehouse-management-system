@@ -22,7 +22,10 @@ namespace Warehouse_management_system.Data
         public DbSet<Container> Containers { get; set; }
         public DbSet<Package> Packages { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<SchedulingProcess> SchedulingProcesses { get; set; }
+        public DbSet<ContainerSupplier> ContainerSupplier { get; set; }
+        public DbSet<WarehouseLocation> WarehouseLocation { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -50,6 +53,23 @@ namespace Warehouse_management_system.Data
                 .Entity<Customer>()
                 .HasMany(c => c.Packages)
                 .WithOne(p => p.Customer);
+
+            builder
+                .Entity<SchedulingProcess>()
+                .HasMany(s => s.Packages)
+                .WithOne(p => p.ScheduleProcess);
+
+            builder
+                .Entity<Supplier>()
+                .HasMany(s => s.Containers)
+                .WithMany(c => c.Suppliers)
+                .UsingEntity<ContainerSupplier>(
+                j => j.HasKey(p => new { p.SuppliersId, p.ContainersId }));
+
+            builder
+               .Entity<Supplier>()
+               .HasMany(s => s.Packages)
+               .WithOne(p => p.Supplier);
         }
     }
 }

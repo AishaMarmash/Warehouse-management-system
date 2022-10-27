@@ -22,21 +22,6 @@ namespace Warehouse_management_system.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ContainerSupplier", b =>
-                {
-                    b.Property<int>("ContainersId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SuppliersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ContainersId", "SuppliersId");
-
-                    b.HasIndex("SuppliersId");
-
-                    b.ToTable("ContainerSupplier");
-                });
-
             modelBuilder.Entity("NotePackage", b =>
                 {
                     b.Property<int>("NotesId")
@@ -49,7 +34,22 @@ namespace Warehouse_management_system.Migrations
 
                     b.HasIndex("PackagesId");
 
-                    b.ToTable("NotePackage");
+                    b.ToTable("NotePackage", (string)null);
+                });
+
+            modelBuilder.Entity("Warehouse_management_system.Domain.Models.ContainerSupplier", b =>
+                {
+                    b.Property<int>("SuppliersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ContainersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SuppliersId", "ContainersId");
+
+                    b.HasIndex("ContainersId");
+
+                    b.ToTable("ContainerSupplier", (string)null);
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Domain.Models.Note", b =>
@@ -66,7 +66,7 @@ namespace Warehouse_management_system.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Note");
+                    b.ToTable("Note", (string)null);
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Domain.Models.SchedulingProcess", b =>
@@ -77,10 +77,10 @@ namespace Warehouse_management_system.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("ActualIn")
+                    b.Property<DateTime?>("ActualIn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ActualOut")
+                    b.Property<DateTime?>("ActualOut")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("ExpectedIn")
@@ -96,7 +96,7 @@ namespace Warehouse_management_system.Migrations
 
                     b.HasIndex("WarehouseLocationId");
 
-                    b.ToTable("SchedulingProcesses");
+                    b.ToTable("SchedulingProcesses", (string)null);
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Domain.Models.WarehouseLocation", b =>
@@ -116,7 +116,7 @@ namespace Warehouse_management_system.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WarehouseLocation");
+                    b.ToTable("WarehouseLocation", (string)null);
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Models.Container", b =>
@@ -127,12 +127,16 @@ namespace Warehouse_management_system.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("ContainerNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Containers");
+                    b.ToTable("Containers", (string)null);
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Models.Customer", b =>
@@ -193,7 +197,7 @@ namespace Warehouse_management_system.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Models.Package", b =>
@@ -223,6 +227,9 @@ namespace Warehouse_management_system.Migrations
                     b.Property<int>("ScheduleProcessId")
                         .HasColumnType("int");
 
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -234,7 +241,9 @@ namespace Warehouse_management_system.Migrations
 
                     b.HasIndex("ScheduleProcessId");
 
-                    b.ToTable("Packages");
+                    b.HasIndex("SupplierId");
+
+                    b.ToTable("Packages", (string)null);
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Models.Supplier", b =>
@@ -295,22 +304,7 @@ namespace Warehouse_management_system.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Suppliers");
-                });
-
-            modelBuilder.Entity("ContainerSupplier", b =>
-                {
-                    b.HasOne("Warehouse_management_system.Models.Container", null)
-                        .WithMany()
-                        .HasForeignKey("ContainersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Warehouse_management_system.Models.Supplier", null)
-                        .WithMany()
-                        .HasForeignKey("SuppliersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.ToTable("Suppliers", (string)null);
                 });
 
             modelBuilder.Entity("NotePackage", b =>
@@ -326,6 +320,25 @@ namespace Warehouse_management_system.Migrations
                         .HasForeignKey("PackagesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Warehouse_management_system.Domain.Models.ContainerSupplier", b =>
+                {
+                    b.HasOne("Warehouse_management_system.Models.Container", "Container")
+                        .WithMany()
+                        .HasForeignKey("ContainersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Warehouse_management_system.Models.Supplier", "Supplier")
+                        .WithMany()
+                        .HasForeignKey("SuppliersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Container");
+
+                    b.Navigation("Supplier");
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Domain.Models.SchedulingProcess", b =>
@@ -359,11 +372,19 @@ namespace Warehouse_management_system.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Warehouse_management_system.Models.Supplier", "Supplier")
+                        .WithMany("Packages")
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Container");
 
                     b.Navigation("Customer");
 
                     b.Navigation("ScheduleProcess");
+
+                    b.Navigation("Supplier");
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Domain.Models.SchedulingProcess", b =>
@@ -382,6 +403,11 @@ namespace Warehouse_management_system.Migrations
                 });
 
             modelBuilder.Entity("Warehouse_management_system.Models.Customer", b =>
+                {
+                    b.Navigation("Packages");
+                });
+
+            modelBuilder.Entity("Warehouse_management_system.Models.Supplier", b =>
                 {
                     b.Navigation("Packages");
                 });

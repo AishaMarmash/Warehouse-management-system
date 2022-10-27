@@ -8,5 +8,6 @@ namespace Warehouse_management_system.Models
         {
         }
         public List<Container> Containers { get; set; }
+        public List<Package> Packages { get; set; }
     }
 }

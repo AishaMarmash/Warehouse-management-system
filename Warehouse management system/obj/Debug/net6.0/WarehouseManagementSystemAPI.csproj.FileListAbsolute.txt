@@ -60,3 +60,5 @@ C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management 
 C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\WarehouseManagementSystemAPI.pdb
 C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\WarehouseManagementSystemAPI.genruntimeconfig.cache
 C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\obj\Debug\net6.0\ref\WarehouseManagementSystemAPI.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Logitude\source\repos\Warehouse management system\Warehouse management system\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

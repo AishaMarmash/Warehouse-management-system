@@ -24,5 +24,8 @@ namespace Warehouse_management_system.Models
 
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
     }
 }
