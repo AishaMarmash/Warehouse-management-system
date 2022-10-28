@@ -4,11 +4,11 @@ namespace Warehouse_management_system.Models
 {
     public class Container
     {
-        public int Id { get; set; }//pk
+        public int Id { get; set; }
         public ContainerType Type { get; set; }
         public string ContainerNumber { get; set; }
         
-        public List<Package> Packages { get; set; } //collection navigation property
+        public List<Package> Packages { get; set; }
         public List<Supplier> Suppliers { get; set; }
     }
 }
