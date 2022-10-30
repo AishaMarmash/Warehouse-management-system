@@ -16,17 +16,26 @@ namespace Warehouse_management_system.Controllers
             _packageService = packageService;
             _mapper = mapper;
         }
-        [HttpGet]
-        public ActionResult GetPackages()
+        [HttpGet("current")]
+        public ActionResult GetCurrentPackages()
         {
-            var packages = _packageService.GetPackages();
+            var packages = _packageService.GetCurrentPackages();
             var response = _mapper.Map<List<PackageResponseDto>>(packages);
             if (response.Count == 0)
                 return NoContent();
             else
                 return Ok(response);
         }
-
+        [HttpGet("outgoing")]
+        public ActionResult GetOutgoingPackages()
+        {
+            var packages = _packageService.GetOutgoingPackages();
+            var response = _mapper.Map<List<PackageResponseDto>>(packages);
+            if (response.Count == 0)
+                return NoContent();
+            else
+                return Ok(response);
+        }
         [HttpGet("movements/{startDate}/{endDate}")]
         public ActionResult GetMovements(string startDate, string endDate)
         {
@@ -36,44 +45,3 @@ namespace Warehouse_management_system.Controllers
         }
     } 
 }
-
-
-
-
-
-
-
-
-
-        //uncompleted service
-        //[HttpPost]
-        //public ActionResult AddOrder([FromBody]OrderModel orderModel)
-        //{
-        //    var customer = _mapper.Map<UserDto>(orderModel.Customer);
-        //    var supplier = _mapper.Map<UserDto>(orderModel.Supplier);
-        //    _packageService.AddOrder(customer, supplier, packages);
-        //    //return Ok();
-        //}
-    
-
-/*
- * {
- *      customer : {
- *                    
- *                  },
- *      supplier : {
- *                      
- *                  },
- *      containerNumber : ,
- *      packages:[
- *                  {
- *                  },
- *                  {
- *                  }
- *      ],
- *      ScheduleProcess : {
- *                          
- *                        }
- * }
- * 
- */

@@ -11,9 +11,13 @@ namespace Warehouse_management_system.Services
         {
             _packageRepository = repository;
         }
-        public List<Package> GetPackages()
+        public List<Package> GetCurrentPackages()
         {
-            return _packageRepository.GetPackages();
+            return _packageRepository.GetCurrentPackages();
+        }
+        public List<Package> GetOutgoingPackages()
+        {
+            return _packageRepository.GetOutgoingPackages();
         }
         public List<Package> GetMovements(string start, string end)
         {

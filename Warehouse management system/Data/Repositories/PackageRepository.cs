@@ -11,16 +11,22 @@ namespace Warehouse_management_system.Data.Repositories
         {
             _context = context;
         }
-        public List<Package> GetPackages()
+        public List<Package> GetCurrentPackages()
         {
-            var packages = _context.SchedulingProcesses
-                                .Include(u => u.Packages)
-                                .ThenInclude(u => u.Container)
-                                .ThenInclude(c => c.Suppliers)
-                                .Where(s => (s.ActualIn != null && s.ActualOut == null) ||
-                                      (s.ActualOut != null) ||
-                                     !(s.ActualIn == null && s.ExpectedIn.AddDays(+3) < DateTime.Now))
-                                .SelectMany(s => s.Packages).ToList();
+            var packages = _context.Packages
+                                   .Include(p => p.ScheduleProcess)
+                                   .Where(p => p.ScheduleProcess.ActualIn != null && 
+                                               p.ScheduleProcess.ActualOut == null)
+                                   .ToList();
+            return packages;
+        }
+        public List<Package> GetOutgoingPackages()
+        {
+            var packages = _context.Packages
+                                   .Include(p => p.ScheduleProcess)
+                                   .Where(p => p.ScheduleProcess.ActualIn != null && 
+                                               p.ScheduleProcess.ActualOut != null)
+                                   .ToList();
             return packages;
         }
         public List<Package> GetMovements(string start, string end)
