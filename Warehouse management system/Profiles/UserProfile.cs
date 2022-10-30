@@ -4,11 +4,14 @@ using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Profiles
 {
-    public class CustomerProfile : Profile
+    public class UserProfile : Profile
     {
-        public CustomerProfile()
+        public UserProfile()
         {
             CreateMap<Customer, CustomerResponseDto>();
+            CreateMap<UserDto, Customer>();
+            CreateMap<UserDto, Supplier>();
+            CreateMap<Supplier, SupplierResponseDto>();
         }
     }
 }

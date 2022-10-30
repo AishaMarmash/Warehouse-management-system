@@ -15,5 +15,9 @@ namespace Warehouse_management_system.Services
         {
             return _packageRepository.GetPackages();
         }
+        public List<Package> GetMovements(string start, string end)
+        {
+            return _packageRepository.GetMovements(start, end);
+        }
     }
 }

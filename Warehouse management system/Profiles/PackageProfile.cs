@@ -8,7 +8,10 @@ namespace Warehouse_management_system.Profiles
     {
         public PackageProfile()
         {
-            CreateMap<Package, PackageResponseDto>();
+            CreateMap<Package, PackageResponseDto>()
+                .ForMember(dest => dest.PackageId,
+                 opt => opt.MapFrom(src => src.Id));
+            CreateMap<Package, MovementsDto>();
         }
     }
 }

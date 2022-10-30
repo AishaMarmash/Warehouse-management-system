@@ -21,7 +21,8 @@ namespace Warehouse_management_system.Controllers
         public ActionResult GetCustomers()
         {
             List<Customer> customers = _customerService.GetCustomers();
-            
+            if (customers.Count == 0)
+                return NoContent();
             List<CustomerResponseDto> customersList = new(); 
             foreach (var customer in customers)
             {

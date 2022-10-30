@@ -2,7 +2,7 @@
 {
     public class PackageResponseDto
     {
-        public int Id { get; set; }
+        public int PackageId { get; set; }
         public bool? IsExpired { get; set; }
         public bool? IsOut { get; set; }
     }

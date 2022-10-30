@@ -32,5 +32,19 @@ namespace Warehouse_management_system.Data.Repositories
             //                        .Select(x=>x).ToList();
             return response;
         }
+        public void AddWarehouseLocation(WarehouseLocation warehouseLocation)
+        {
+            _context.WarehouseLocation.Add(warehouseLocation);
+            _context.SaveChanges();
+        }
+        public WarehouseLocation FindWarehouseLocation(int locationNumber)
+        {
+            var location = _context.WarehouseLocation.First(l => l.Id == locationNumber);
+            return location;
+        }
+        public void UpdateLocation()
+        {
+            _context.SaveChanges(); ;
+        }
     }
 }

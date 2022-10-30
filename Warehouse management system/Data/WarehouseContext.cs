@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using System.ComponentModel;
-using System.Diagnostics.Metrics;
 using Warehouse_management_system.Domain.Models;
 using Warehouse_management_system.Models;
 using Container = Warehouse_management_system.Models.Container;
