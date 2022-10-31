@@ -23,5 +23,9 @@ namespace Warehouse_management_system.Services
         {
             return _packageRepository.GetMovements(start, end);
         }
+        public void DeleteExpiredPackages()
+        {
+            _packageRepository.DeleteExpiredPackages();
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Warehouse_management_system.Domain.Services
         public List<Package> GetCurrentPackages();
         public List<Package> GetOutgoingPackages();
         public List<Package> GetMovements(string start, string end);
+        public void DeleteExpiredPackages();
     }
 }

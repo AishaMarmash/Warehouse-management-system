@@ -43,5 +43,11 @@ namespace Warehouse_management_system.Controllers
             var response = _mapper.Map<List<MovementsDto>>(customers);
             return Ok(response);
         }
+        [HttpDelete("expired")]
+        public ActionResult DeleteExpiredPackages()
+        {
+            _packageService.DeleteExpiredPackages();
+            return Ok("Checked and deleted the expired packages if any found");
+        }
     } 
 }

@@ -46,5 +46,15 @@ namespace Warehouse_management_system.Data.Repositories
                                           .Select(m => m).ToList();
             return packages;
         }
+        public void DeleteExpiredPackages()
+        {
+            var packages = _context.Packages
+                                   .Include(p => p.ScheduleProcess)
+                                   .Where(p => (p.ScheduleProcess.ActualIn == null && 
+                                                p.ScheduleProcess.ExpectedIn.AddDays(+3) < DateTime.Now))
+                                   .ToList();
+            _context.Packages.RemoveRange(packages);
+            _context.SaveChanges();
+        }
     }
 }
