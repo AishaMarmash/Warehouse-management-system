@@ -3,7 +3,6 @@
     public class PackageResponseDto
     {
         public int PackageId { get; set; }
-        public bool? IsExpired { get; set; }
-        public bool? IsOut { get; set; }
+        public string Dimintions { get; set; }
     }
 }

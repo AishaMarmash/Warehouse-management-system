@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Warehouse_management_system.Domain.Services;
 using Warehouse_management_system.Domain.ViewModel;
+using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Controllers
 {
@@ -39,9 +40,9 @@ namespace Warehouse_management_system.Controllers
         [HttpGet("movements/{startDate}/{endDate}")]
         public ActionResult GetMovements(string startDate, string endDate)
         {
-            var customers = _packageService.GetMovements(startDate, endDate);
-            var response = _mapper.Map<List<MovementsDto>>(customers);
-            return Ok(response);
+            var movements = _packageService.GetMovements(startDate, endDate);
+            var responseList = _packageService.BuildResponse(movements);
+            return Ok(responseList);
         }
         [HttpDelete("expired")]
         public ActionResult DeleteExpiredPackages()
