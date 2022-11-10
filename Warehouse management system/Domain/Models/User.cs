@@ -12,11 +12,9 @@
         public String Zip { get; set; }
         public String Nationality { get; set; }
         public String Email { get; set; }
-        public String CountryCode { get; set; }
-        public String CityCode { get; set; }
         public String PhoneNumber { get; set; }
     
-        public User(int id, string firstName, string middleName, string lastName, string country, string city, string street, string zip, string nationality, string email, string countryCode, string cityCode, string phoneNumber)
+        public User(int id, string firstName, string middleName, string lastName, string country, string city, string street, string zip, string nationality, string email, string phoneNumber)
         {
             Id = id;
             FirstName = firstName;
@@ -28,8 +26,6 @@
             Zip = zip;
             Nationality = nationality;
             Email = email;
-            CountryCode = countryCode;
-            CityCode = cityCode;
             PhoneNumber = phoneNumber;
         }
     }
