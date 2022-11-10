@@ -4,7 +4,7 @@ namespace Warehouse_management_system.Domain.Repositories
 {
     public interface IContainerRepository
     {
-        public Container GetContainer(string ContainerNumber);
+        public Container? GetContainer(string ContainerNumber);
         public void AddContainer(Container container);
     }
 }

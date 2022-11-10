@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Warehouse_management_system.Domain.ViewModel;
 using Warehouse_management_system.Models;
+using Warehouse_management_system.Services;
 
 namespace Warehouse_management_system.Profiles
 {
@@ -8,10 +10,12 @@ namespace Warehouse_management_system.Profiles
     {
         public UserProfile()
         {
-            CreateMap<Customer, CustomerResponseDto>();
+            CreateMap<Customer, UserResponseDto>();
             CreateMap<UserDto, Customer>();
             CreateMap<UserDto, Supplier>();
-            CreateMap<Supplier, SupplierResponseDto>();
+            CreateMap<Supplier, UserResponseDto>()
+                .ForMember(dest => dest.Packages,
+                 opt => opt.MapFrom(src => src.Containers.GetPackages()));
         }
     }
 }

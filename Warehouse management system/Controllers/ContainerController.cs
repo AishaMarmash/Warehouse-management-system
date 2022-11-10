@@ -21,13 +21,14 @@ namespace Warehouse_management_system.Controllers
         public ActionResult GetContainer(string containerNumber)
         {
             var container = _containerService.GetContainer(containerNumber);
+            
             if(container == null)
                 return NotFound();
-            var response = _mapper.Map<ContainerDto>(container);
+            var response = _mapper.Map<GetContainerDto>(container);
             return Ok(response);
         }
         [HttpPost]
-        public ActionResult AddContainer([FromBody] ContainerDto ContainerDto)
+        public ActionResult AddContainer([FromBody] AddContainerDto ContainerDto)
         {
             var container = _mapper.Map<Container>(ContainerDto);
             _containerService.AddContainer(container);

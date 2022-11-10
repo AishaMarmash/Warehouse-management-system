@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Warehouse_management_system.Domain.Services;
 using Warehouse_management_system.Domain.ViewModel;
-using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Controllers
 {
@@ -41,7 +40,7 @@ namespace Warehouse_management_system.Controllers
         public ActionResult GetMovements(string startDate, string endDate)
         {
             var movements = _packageService.GetMovements(startDate, endDate);
-            var responseList = _packageService.BuildResponse(movements);
+            var responseList = _packageService.BuildGroupedResponse(movements);
             return Ok(responseList);
         }
         [HttpDelete("expired")]

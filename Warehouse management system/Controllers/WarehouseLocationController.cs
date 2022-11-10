@@ -20,17 +20,21 @@ namespace Warehouse_management_system.Controllers
         [HttpGet("{date}")]
         public ActionResult GetFreeLocations(string date)
         {
-            DateTime dt = Convert.ToDateTime(date);
-            var locations = _warehouseLocationService.GetFreeLocations(dt);
-            if(locations.Count == 0)
-                return NotFound("there are no locations available");
-            List<WarehouseLocationResponseDto> warehousLocations = new();
-            foreach (var location in locations)
+            try
             {
-                WarehouseLocationResponseDto mappedLocation = _mapper.Map<WarehouseLocationResponseDto>(location);
-                warehousLocations.Add(mappedLocation);
+                var freeLocations = _warehouseLocationService.GetFreeLocations(Convert.ToDateTime(date));
+                List<WarehouseLocationResponseDto> FreewarehousLocations = new();
+                foreach (var location in freeLocations)
+                {
+                    WarehouseLocationResponseDto mappedFreeLocation = _mapper.Map<WarehouseLocationResponseDto>(location);
+                    FreewarehousLocations.Add(mappedFreeLocation);
+                }
+                return Ok(FreewarehousLocations);
             }
-            return Ok(warehousLocations);
+            catch (Exception)
+            {
+                return NotFound("There are no locations available");
+            }
         }
         [HttpPost]
         public ActionResult AddLocation([FromBody] CreateLocationDto warehouseLocation)
@@ -45,7 +49,9 @@ namespace Warehouse_management_system.Controllers
             var locationFromRepo = _warehouseLocationService.FindWarehouseLocation(locationNumber);
             var updatedLocation = _mapper.Map(recievedLocation, locationFromRepo);
             _warehouseLocationService.UpdateLocation();
-            return Ok();
+
+            var response = _mapper.Map<WarehouseLocationResponseDto>(updatedLocation);
+            return Ok(response);
         }
     }
 }

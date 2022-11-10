@@ -1,8 +1,6 @@
-﻿using Warehouse_management_system.Models;
-
-namespace Warehouse_management_system.Domain.ViewModel
+﻿namespace Warehouse_management_system.Domain.ViewModel
 {
-    public class CustomerResponseDto
+    public class UserResponseDto
     {
         public int Id { get; set; }
         public String FirstName { get; set; }

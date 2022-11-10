@@ -62,11 +62,6 @@ namespace Warehouse_management_system.Data
                 .WithMany(c => c.Suppliers)
                 .UsingEntity<ContainerSupplier>(
                 j => j.HasKey(p => new { p.SuppliersId, p.ContainersId }));
-
-            builder
-               .Entity<Supplier>()
-               .HasMany(s => s.Packages)
-               .WithOne(p => p.Supplier);
         }
     }
 }

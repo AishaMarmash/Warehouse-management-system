@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Warehouse_management_system.Domain.Repositories;
+﻿using Warehouse_management_system.Domain.Repositories;
 using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Data.Repositories
@@ -11,7 +10,7 @@ namespace Warehouse_management_system.Data.Repositories
         {
             _context = context;
         }
-        public Container GetContainer(string containerNumber)
+        public Container? GetContainer(string containerNumber)
         {
             return _context.Containers.FirstOrDefault(c => c.ContainerNumber.Equals(containerNumber));
         }

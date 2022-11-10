@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Warehouse_management_system.Domain.Repositories;
-using Warehouse_management_system.Domain.ViewModel;
 using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Data.Repositories
@@ -15,8 +14,9 @@ namespace Warehouse_management_system.Data.Repositories
         public List<Supplier> GetSuppliers()
         {
             var suppliers = _context.Suppliers
-                                 .Include(s => s.Packages)
-                                 .ToList();
+                                    .Include(s => s.Containers)
+                                    .ThenInclude( c =>c.Packages)
+                                    .ToList();
             return suppliers;
         }
     }

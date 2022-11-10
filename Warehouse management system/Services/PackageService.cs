@@ -31,24 +31,22 @@ namespace Warehouse_management_system.Services
         {
             _packageRepository.DeleteExpiredPackages();
         }
-        public List<CustomerTransPackagesDto> BuildResponse(List<CustomerTransPackages> movements)
+        public List<CustomerTransPackagesDto> BuildGroupedResponse(List<CustomerTransPackages> movements)
         {
             List<CustomerTransPackagesDto> responseList = new();
-            foreach (var obj in movements)
+            foreach (var movement in movements)
             {
                 List<PackageResponseDto> responsePackages = new();
-                foreach (var package in obj.packages)
+                foreach (var package in movement.packages)
                 {
                     var mappedPackage = _mapper.Map<PackageResponseDto>(package);
                     responsePackages.Add(mappedPackage);
                 }
-                var mappedObj = _mapper.Map<CustomerTransPackagesDto>(obj);
-                mappedObj.packages = responsePackages;
-                responseList.Add(mappedObj);
+                var mappedMovement = _mapper.Map<CustomerTransPackagesDto>(movement);
+                mappedMovement.packages = responsePackages;
+                responseList.Add(mappedMovement);
             }
             return responseList;
-
         }
-
     }
 }

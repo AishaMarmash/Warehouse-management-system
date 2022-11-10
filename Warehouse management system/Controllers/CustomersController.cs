@@ -21,12 +21,13 @@ namespace Warehouse_management_system.Controllers
         public ActionResult GetCustomers()
         {
             List<Customer> customers = _customerService.GetCustomers();
+
             if (customers.Count == 0)
                 return NoContent();
-            List<CustomerResponseDto> customersList = new(); 
+            List<UserResponseDto> customersList = new(); 
             foreach (var customer in customers)
             {
-                CustomerResponseDto mappedCustomer = _mapper.Map<CustomerResponseDto>(customer);
+                UserResponseDto mappedCustomer = _mapper.Map<UserResponseDto>(customer);
                 customersList.Add(mappedCustomer);
             }
             return Ok(customersList);

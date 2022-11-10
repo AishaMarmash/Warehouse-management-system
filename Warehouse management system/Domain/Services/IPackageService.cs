@@ -9,6 +9,6 @@ namespace Warehouse_management_system.Domain.Services
         public List<Package> GetOutgoingPackages();
         public List<CustomerTransPackages> GetMovements(string start, string end);
         public void DeleteExpiredPackages();
-        public List<CustomerTransPackagesDto> BuildResponse(List<CustomerTransPackages> movements);
+        public List<CustomerTransPackagesDto> BuildGroupedResponse(List<CustomerTransPackages> movements);
     }
 }

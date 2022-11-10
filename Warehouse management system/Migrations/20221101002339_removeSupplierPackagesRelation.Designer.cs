@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Warehouse_management_system.Data;
 
@@ -11,9 +12,10 @@ using Warehouse_management_system.Data;
 namespace Warehouse_management_system.Migrations
 {
     [DbContext(typeof(WarehouseContext))]
-    partial class WarehouseContextModelSnapshot : ModelSnapshot
+    [Migration("20221101002339_removeSupplierPackagesRelation")]
+    partial class removeSupplierPackagesRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -209,6 +211,12 @@ namespace Warehouse_management_system.Migrations
                     b.Property<string>("Dimintions")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsExpired")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsOut")
+                        .HasColumnType("bit");
 
                     b.Property<int>("ScheduleProcessId")
                         .HasColumnType("int");

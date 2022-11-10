@@ -12,7 +12,10 @@ namespace Warehouse_management_system.Profiles
             CreateMap<WarehouseLocation, WarehouseLocationResponseDto>();
             CreateMap<CreateLocationDto, WarehouseLocation>();
             CreateMap<UpdateLocationDto, WarehouseLocation>()
-            .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null)); ;
+            .ForMember(dest => dest.Capacity,
+                        opt => opt.Condition((src, dest, srcMember) => srcMember != 0))
+            .ForMember(dest => dest.Dimintion,
+                        opt => opt.Condition((src, dest, srcMember) => srcMember != null));
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Warehouse_management_system.Profiles
             CreateMap<Package, PackageResponseDto>()
                 .ForMember(dest => dest.PackageId,
                  opt => opt.MapFrom(src => src.Id));
-            CreateMap<Package, MovementsDto>();
             CreateMap<CustomerTransPackages, CustomerTransPackagesDto>();
         }
     }
