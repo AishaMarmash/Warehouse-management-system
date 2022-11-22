@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Warehouse_management_system.Domain.Models;
 using Warehouse_management_system.Domain.Services;
 using Warehouse_management_system.Domain.ViewModel;
 using Warehouse_management_system.Models;
+using Warehouse_management_system.Services;
 
 namespace Warehouse_management_system.Controllers
 {
@@ -20,17 +22,12 @@ namespace Warehouse_management_system.Controllers
         [HttpGet]
         public ActionResult GetSuppliers()
         {
-            List<Supplier> suppliers = _supplierService.GetSuppliers();
+            List<User> suppliers = _supplierService.GetSuppliers();
             
             if (suppliers.Count == 0)
                 return NoContent();
-            List<UserResponseDto> suppliersList = new();
-            foreach (var supplier in suppliers)
-            {
-                UserResponseDto mappedSupplier = _mapper.Map<UserResponseDto>(supplier);
-                suppliersList.Add(mappedSupplier);
-            }
-            return Ok(suppliersList);
+            var response = _supplierService.BuildResponse(suppliers);
+            return Ok(response);
         }
     }
 }

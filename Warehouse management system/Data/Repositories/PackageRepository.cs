@@ -36,7 +36,7 @@ namespace Warehouse_management_system.Data.Repositories
             DateTime endDateTime = Convert.ToDateTime(end);
             var customerTransPackages = _context.Customers
                                         .Select(u => new CustomerTransPackages()
-                                                        {
+                                                         {
                                                             CustomerId = u.Id,
                                                             CustomerName = u.FirstName + " " + u.MiddleName+ " " + u.LastName,
                                                             packages = u.Packages.Where(p => (p.ScheduleProcess.ActualIn > startDateTime &&
@@ -44,7 +44,7 @@ namespace Warehouse_management_system.Data.Repositories
                                                                                              (p.ScheduleProcess.ActualOut > startDateTime &&
                                                                                               p.ScheduleProcess.ActualOut < endDateTime))
                                                                                  .ToList()
-                                                        })
+                                                         })
                                         .Where(u=>u.packages.Count > 0)
                                         .ToList();
             return customerTransPackages;

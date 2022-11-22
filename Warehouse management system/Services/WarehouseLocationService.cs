@@ -11,9 +11,9 @@ namespace Warehouse_management_system.Services
         {
             _warehouseLocationRepository = repository;
         }
-        public List<WarehouseLocation>GetFreeLocations(DateTime time)
+        public List<WarehouseLocation>GetFreeLocations(DateTime date)
         {
-            return _warehouseLocationRepository.GetFreeLocations(time);
+            return _warehouseLocationRepository.GetFreeLocations(date);
         }
         public void AddWarehouseLocation(WarehouseLocation warehouseLocation)
         {

@@ -10,10 +10,10 @@ namespace Warehouse_management_system.Data.Repositories
         {
             _context = context;
         }
-        public List<WarehouseLocation> GetFreeLocations(DateTime time)
+        public List<WarehouseLocation> GetFreeLocations(DateTime date)
         {
             List<int> warehouseNotFree = _context.SchedulingProcesses
-                                                 .Where(x => (time.CompareTo(x.ExpectedIn)>0) && (x.ExpectedOut.CompareTo(time)>0))
+                                                 .Where(x => (date.CompareTo(x.ExpectedIn) > 0) && (x.ExpectedOut.CompareTo(date) > 0))
                                                  .Select(c => c.WarehouseLocationId).ToList();
             var freeWarehouses = _context.WarehouseLocation
                                    .Where(x => !warehouseNotFree.Contains(x.Id))

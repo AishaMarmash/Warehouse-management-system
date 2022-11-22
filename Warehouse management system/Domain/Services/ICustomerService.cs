@@ -1,10 +1,9 @@
-﻿using Warehouse_management_system.Domain.ViewModel;
-using Warehouse_management_system.Models;
+﻿using Warehouse_management_system.Domain.Models;
 
 namespace Warehouse_management_system.Domain.Services
 {
-    public interface ICustomerService
+    public interface ICustomerService : IUserService
     {
-        public List<Customer> GetCustomers();
+        public List<User> GetCustomers();
     }
 }

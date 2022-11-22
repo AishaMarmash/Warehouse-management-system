@@ -10,10 +10,8 @@ namespace Warehouse_management_system.Profiles
     {
         public UserProfile()
         {
-            CreateMap<Customer, UserResponseDto>();
-            CreateMap<UserDto, Customer>();
-            CreateMap<UserDto, Supplier>();
-            CreateMap<Supplier, UserResponseDto>()
+            CreateMap<Customer, UserDto>();
+            CreateMap<Supplier, UserDto>()
                 .ForMember(dest => dest.Packages,
                  opt => opt.MapFrom(src => src.Containers.GetPackages()));
         }
