@@ -20,16 +20,12 @@ namespace Warehouse_management_system.Controllers
         [HttpGet("{date}")]
         public ActionResult GetFreeLocations(string date)
         {
+            //date format YYYY-MM-DD
             try
             {
                 var freeLocations = _warehouseLocationService.GetFreeLocations(Convert.ToDateTime(date));
-                List<WarehouseLocationResponseDto> FreewarehousLocations = new();
-                foreach (var location in freeLocations)
-                {
-                    WarehouseLocationResponseDto mappedFreeLocation = _mapper.Map<WarehouseLocationResponseDto>(location);
-                    FreewarehousLocations.Add(mappedFreeLocation);
-                }
-                return Ok(FreewarehousLocations);
+                var response = _warehouseLocationService.BuildResponse(freeLocations);
+                return Ok(response);
             }
             catch (Exception)
             {
@@ -47,11 +43,9 @@ namespace Warehouse_management_system.Controllers
         public ActionResult UpdateLocation(int locationNumber, [FromBody] UpdateLocationDto recievedLocation)
         {
             var locationFromRepo = _warehouseLocationService.FindWarehouseLocation(locationNumber);
-            var updatedLocation = _mapper.Map(recievedLocation, locationFromRepo);
+            _mapper.Map(recievedLocation, locationFromRepo);
             _warehouseLocationService.UpdateLocation();
-
-            var response = _mapper.Map<WarehouseLocationResponseDto>(updatedLocation);
-            return Ok(response);
+            return Ok();
         }
     }
 }

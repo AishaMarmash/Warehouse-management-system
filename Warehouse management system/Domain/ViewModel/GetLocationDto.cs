@@ -2,7 +2,7 @@
 
 namespace Warehouse_management_system.Domain.ViewModel
 {
-    public class WarehouseLocationResponseDto
+    public class GetLocationDto
     {
         public int Id { get; set; }
         public String Dimintion { get; set; }

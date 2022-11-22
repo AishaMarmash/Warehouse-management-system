@@ -9,7 +9,7 @@ namespace Warehouse_management_system.Profiles
     {
         public WarehouseLocationProfile()
         {
-            CreateMap<WarehouseLocation, WarehouseLocationResponseDto>();
+            CreateMap<WarehouseLocation, GetLocationDto>();
             CreateMap<CreateLocationDto, WarehouseLocation>();
             CreateMap<UpdateLocationDto, WarehouseLocation>()
             .ForMember(dest => dest.Capacity,

@@ -2,6 +2,7 @@
 using Warehouse_management_system.Domain.Models;
 using Warehouse_management_system.Domain.Repositories;
 using Warehouse_management_system.Domain.Services;
+using Warehouse_management_system.Domain.ViewModel;
 using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Services
@@ -38,20 +39,8 @@ namespace Warehouse_management_system.Services
         }
         public List<CustomerTransPackagesDto> BuildTransferredPackagesResponse(List<CustomerTransPackages> movements)
         {
-            List<CustomerTransPackagesDto> responseList = new();
-            foreach (var movement in movements)
-            {
-                List<PackageDto> responsePackages = new();
-                foreach (var package in movement.packages)
-                {
-                    var mappedPackage = _mapper.Map<PackageDto>(package);
-                    responsePackages.Add(mappedPackage);
-                }
-                var mappedMovement = _mapper.Map<CustomerTransPackagesDto>(movement);
-                mappedMovement.packages = responsePackages;
-                responseList.Add(mappedMovement);
-            }
-            return responseList;
+            List<CustomerTransPackagesDto> response = _mapper.Map<List<CustomerTransPackagesDto>>(movements);
+            return response;
         }
     }
 }
