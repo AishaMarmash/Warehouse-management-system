@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Warehouse_management_system.Domain.Models;
 using Warehouse_management_system.Domain.Repositories;
 using Warehouse_management_system.Domain.Services;
-using Warehouse_management_system.Domain.ViewModel;
 using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Services
@@ -31,15 +31,20 @@ namespace Warehouse_management_system.Services
         {
             _packageRepository.DeleteExpiredPackages();
         }
-        public List<CustomerTransPackagesDto> BuildGroupedResponse(List<CustomerTransPackages> movements)
+        public List<PackageDto> BuildNormalPackageResponse(List<Package> packages)
+        {
+            var response = _mapper.Map<List<PackageDto>>(packages);
+            return response;
+        }
+        public List<CustomerTransPackagesDto> BuildTransferredPackagesResponse(List<CustomerTransPackages> movements)
         {
             List<CustomerTransPackagesDto> responseList = new();
             foreach (var movement in movements)
             {
-                List<PackageResponseDto> responsePackages = new();
+                List<PackageDto> responsePackages = new();
                 foreach (var package in movement.packages)
                 {
-                    var mappedPackage = _mapper.Map<PackageResponseDto>(package);
+                    var mappedPackage = _mapper.Map<PackageDto>(package);
                     responsePackages.Add(mappedPackage);
                 }
                 var mappedMovement = _mapper.Map<CustomerTransPackagesDto>(movement);

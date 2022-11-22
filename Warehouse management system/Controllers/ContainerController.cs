@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Warehouse_management_system.Domain.Services;
-using Warehouse_management_system.Domain.ViewModel;
+using Warehouse_management_system.Domain.ViewModel.Container;
 using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Controllers
@@ -24,7 +24,7 @@ namespace Warehouse_management_system.Controllers
             
             if(container == null)
                 return NotFound();
-            var response = _mapper.Map<GetContainerDto>(container);
+            var response = _containerService.BuildResponse(container);
             return Ok(response);
         }
         [HttpPost]

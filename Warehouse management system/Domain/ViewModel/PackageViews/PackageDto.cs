@@ -1,6 +1,6 @@
-﻿namespace Warehouse_management_system.Domain.ViewModel
+﻿namespace Warehouse_management_system.Domain.Models
 {
-    public class PackageResponseDto
+    public class PackageDto
     {
         public int PackageId { get; set; }
         public string Type { get; set; }

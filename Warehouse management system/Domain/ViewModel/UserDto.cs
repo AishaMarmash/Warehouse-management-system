@@ -1,4 +1,6 @@
-﻿namespace Warehouse_management_system.Domain.ViewModel
+﻿using Warehouse_management_system.Domain.Models;
+
+namespace Warehouse_management_system.Domain.ViewModel
 {
     public class UserDto
     {
@@ -6,6 +8,6 @@
         public String FirstName { get; set; }
         public String MiddleName { get; set; }
         public String LastName { get; set; }
-        public List<PackageResponseDto> Packages { get; set; } = new();
+        public List<PackageDto> Packages { get; set; } = new();
     }
 }

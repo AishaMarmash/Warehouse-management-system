@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Warehouse_management_system.Domain;
-using Warehouse_management_system.Domain.ViewModel;
+using Warehouse_management_system.Domain.ViewModel.Container;
 using Warehouse_management_system.Models;
 using Warehouse_management_system.Services;
 

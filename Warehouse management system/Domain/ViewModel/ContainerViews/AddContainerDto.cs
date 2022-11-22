@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Warehouse_management_system.Domain.ViewModel
+namespace Warehouse_management_system.Domain.ViewModel.Container
 {
     public class AddContainerDto
     {

@@ -1,4 +1,5 @@
-﻿using Warehouse_management_system.Models;
+﻿using Warehouse_management_system.Domain.ViewModel.Container;
+using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Domain.Services
 {
@@ -6,5 +7,6 @@ namespace Warehouse_management_system.Domain.Services
     {
         public Container GetContainer(string containerNumber);
         public void AddContainer(Container container);
+        public GetContainerDto BuildResponse(Container container);
     }
 }
