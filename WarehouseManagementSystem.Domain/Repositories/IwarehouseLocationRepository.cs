@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Warehouse_management_system.Domain.Models;
+﻿using Warehouse_management_system.Domain.Models;
 
 namespace Warehouse_management_system.Domain.Repositories
 {

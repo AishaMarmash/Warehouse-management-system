@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\Warehouse management system\\WarehouseManagementSystemAPI.csproj": {}
+    "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\WarehouseManagementSystem.Data\\WarehouseManagementSystem.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\Warehouse management system\\WarehouseManagementSystemAPI.csproj": {
+    "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\WarehouseManagementSystem.Data\\WarehouseManagementSystem.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\Warehouse management system\\WarehouseManagementSystemAPI.csproj",
-        "projectName": "WarehouseManagementSystemAPI",
-        "projectPath": "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\Warehouse management system\\WarehouseManagementSystemAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\WarehouseManagementSystem.Data\\WarehouseManagementSystem.Data.csproj",
+        "projectName": "WarehouseManagementSystem.Data",
+        "projectPath": "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\WarehouseManagementSystem.Data\\WarehouseManagementSystem.Data.csproj",
         "packagesPath": "C:\\Users\\Logitude\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\Warehouse management system\\obj\\",
+        "outputPath": "C:\\Users\\Logitude\\source\\repos\\Warehouse management system\\WarehouseManagementSystem.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Logitude\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -49,10 +49,6 @@
               "target": "Package",
               "version": "[12.0.0, )"
             },
-            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
-              "target": "Package",
-              "version": "[6.0.11, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.10, )"
@@ -66,10 +62,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.10, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.2.3, )"
             }
           },
           "imports": [
@@ -84,9 +76,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

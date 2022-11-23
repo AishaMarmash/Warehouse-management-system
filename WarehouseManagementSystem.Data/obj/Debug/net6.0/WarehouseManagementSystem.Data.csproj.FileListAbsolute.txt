@@ -1,0 +1,17 @@
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\bin\Debug\net6.0\WarehouseManagementSystem.Data.deps.json
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\bin\Debug\net6.0\WarehouseManagementSystem.Data.runtimeconfig.json
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\bin\Debug\net6.0\WarehouseManagementSystem.Data.dll
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\bin\Debug\net6.0\WarehouseManagementSystem.Data.pdb
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\bin\Debug\net6.0\WarehouseManagementSystem.Domain.dll
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\bin\Debug\net6.0\WarehouseManagementSystem.Domain.pdb
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.csproj.AssemblyReference.cache
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.AssemblyInfoInputs.cache
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.AssemblyInfo.cs
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.csproj.CoreCompileInputs.cache
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.csproj.CopyComplete
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.dll
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\refint\WarehouseManagementSystem.Data.dll
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.pdb
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\WarehouseManagementSystem.Data.genruntimeconfig.cache
+C:\Users\Logitude\source\repos\Warehouse management system\WarehouseManagementSystem.Data\obj\Debug\net6.0\ref\WarehouseManagementSystem.Data.dll

@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "6gzXccD76s78+SwBt+307bYsAWhaHQk7HGKmRliqY1A=",
-  "Source": "WarehouseManagementSystemAPI",
-  "BasePath": "_content/WarehouseManagementSystemAPI",
+  "Hash": "JrKkoLi3wsVJez+HhqQoGex6506Q+oVMgZFOU0fBtEs=",
+  "Source": "WarehouseManagementSystem.API",
+  "BasePath": "_content/WarehouseManagementSystem.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
