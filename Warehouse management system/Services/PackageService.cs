@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using Warehouse_management_system.Domain.Models;
+using Warehouse_management_system.Domain.ViewModel.Packages;
 using Warehouse_management_system.Domain.Repositories;
 using Warehouse_management_system.Domain.Services;
-using Warehouse_management_system.Domain.ViewModel;
 using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Services
@@ -24,7 +23,7 @@ namespace Warehouse_management_system.Services
         {
             return _packageRepository.GetOutgoingPackages();
         }
-        public List<CustomerTransPackages> GetMovements(string start, string end)
+        public List<CustomerTransferredPackages> GetMovements(string start, string end)
         {
             return _packageRepository.GetMovements(start, end);
         }
@@ -37,9 +36,9 @@ namespace Warehouse_management_system.Services
             var response = _mapper.Map<List<PackageDto>>(packages);
             return response;
         }
-        public List<CustomerTransPackagesDto> BuildTransferredPackagesResponse(List<CustomerTransPackages> movements)
+        public List<CustomerTransferredPackagesDto> BuildTransferredPackagesResponse(List<CustomerTransferredPackages> movements)
         {
-            List<CustomerTransPackagesDto> response = _mapper.Map<List<CustomerTransPackagesDto>>(movements);
+            List<CustomerTransferredPackagesDto> response = _mapper.Map<List<CustomerTransferredPackagesDto>>(movements);
             return response;
         }
     }

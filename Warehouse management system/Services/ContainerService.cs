@@ -15,7 +15,7 @@ namespace Warehouse_management_system.Services
             _containerRepository = containerRepository;
             _mapper = mapper;
         }
-        public Container GetContainer(string containerNumber)
+        public Container? GetContainer(string containerNumber)
         {
             return _containerRepository.GetContainer(containerNumber);
         }

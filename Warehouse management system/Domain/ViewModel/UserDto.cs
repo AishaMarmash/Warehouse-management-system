@@ -1,4 +1,4 @@
-﻿using Warehouse_management_system.Domain.Models;
+﻿using Warehouse_management_system.Domain.ViewModel.Packages;
 
 namespace Warehouse_management_system.Domain.ViewModel
 {

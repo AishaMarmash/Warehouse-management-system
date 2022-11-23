@@ -1,4 +1,4 @@
-﻿namespace Warehouse_management_system.Domain.Models
+﻿namespace Warehouse_management_system.Domain.ViewModel.Packages
 {
     public class PackageDto
     {

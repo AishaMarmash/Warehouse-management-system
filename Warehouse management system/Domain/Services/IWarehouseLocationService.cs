@@ -1,5 +1,5 @@
 ﻿using Warehouse_management_system.Domain.Models;
-using Warehouse_management_system.Domain.ViewModel;
+using Warehouse_management_system.Domain.ViewModel.Location;
 
 namespace Warehouse_management_system.Domain.Services
 {

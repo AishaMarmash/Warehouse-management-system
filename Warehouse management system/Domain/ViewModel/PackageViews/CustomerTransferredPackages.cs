@@ -1,8 +1,8 @@
 ﻿using Warehouse_management_system.Models;
 
-namespace Warehouse_management_system.Domain.Models
+namespace Warehouse_management_system.Domain.ViewModel.Packages
 {
-    public class CustomerTransPackages
+    public class CustomerTransferredPackages
     {
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Warehouse_management_system.Domain.Models;
+using Warehouse_management_system.Domain.ViewModel.Packages;
 using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Profiles
@@ -11,7 +11,7 @@ namespace Warehouse_management_system.Profiles
             CreateMap<Package, PackageDto>()
                 .ForMember(dest => dest.PackageId,
                  opt => opt.MapFrom(src => src.Id));
-            CreateMap<CustomerTransPackages, CustomerTransPackagesDto>();
+            CreateMap<CustomerTransferredPackages, CustomerTransferredPackagesDto>();
         }
     }
 }

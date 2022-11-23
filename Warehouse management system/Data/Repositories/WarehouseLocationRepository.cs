@@ -1,4 +1,5 @@
-﻿using Warehouse_management_system.Domain.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Warehouse_management_system.Domain.Models;
 using Warehouse_management_system.Domain.Repositories;
 
 namespace Warehouse_management_system.Data.Repositories
@@ -12,12 +13,15 @@ namespace Warehouse_management_system.Data.Repositories
         }
         public List<WarehouseLocation> GetFreeLocations(DateTime date)
         {
-            List<int> warehouseNotFree = _context.SchedulingProcesses
-                                                 .Where(x => (date.CompareTo(x.ExpectedIn) > 0) && (x.ExpectedOut.CompareTo(date) > 0))
-                                                 .Select(c => c.WarehouseLocationId).ToList();
             var freeWarehouses = _context.WarehouseLocation
-                                   .Where(x => !warehouseNotFree.Contains(x.Id))
-                                   .Select(x=>x).ToList();
+                                         .Include(location => location.SchedulingProcesses)
+                                         .Where(
+                                                 location => !_context.SchedulingProcesses
+                                                                      .Where(schedule => (date > schedule.ExpectedIn && 
+                                                                             date < schedule.ExpectedOut))
+                                                               .Select(schedule => schedule.WarehouseLocationId)
+                                                               .Contains(location.Id)
+                                               ).ToList();
             if (freeWarehouses.Count == 0)
                 throw new Exception();
             return freeWarehouses;

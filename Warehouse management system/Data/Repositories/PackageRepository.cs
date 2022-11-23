@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Warehouse_management_system.Domain.Models;
+using Warehouse_management_system.Domain.ViewModel.Packages;
 using Warehouse_management_system.Domain.Repositories;
 using Warehouse_management_system.Models;
 
@@ -30,12 +30,12 @@ namespace Warehouse_management_system.Data.Repositories
                                    .ToList();
             return packages;
         }
-        public List<CustomerTransPackages> GetMovements(string start, string end)
+        public List<CustomerTransferredPackages> GetMovements(string start, string end)
         {
             DateTime startDateTime = Convert.ToDateTime(start);
             DateTime endDateTime = Convert.ToDateTime(end);
             var customerTransPackages = _context.Customers
-                                        .Select(u => new CustomerTransPackages()
+                                        .Select(u => new CustomerTransferredPackages()
                                                          {
                                                             CustomerId = u.Id,
                                                             CustomerName = u.FirstName + " " + u.MiddleName+ " " + u.LastName,

@@ -14,12 +14,10 @@ namespace Warehouse_management_system.Services
         {
             _mapper = mapper;
         }
-
         public List<UserDto> BuildResponse(List<User> users)
         {
             List<UserDto> mappedUsers = _mapper.Map<List<UserDto>>(users);
             return mappedUsers;
         }
-
     }
 }

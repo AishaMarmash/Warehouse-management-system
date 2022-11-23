@@ -1,4 +1,4 @@
-﻿using Warehouse_management_system.Domain.Models;
+﻿using Warehouse_management_system.Domain.ViewModel.Packages;
 using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Domain.Services
@@ -7,9 +7,9 @@ namespace Warehouse_management_system.Domain.Services
     {
         public List<Package> GetCurrentPackages();
         public List<Package> GetOutgoingPackages();
-        public List<CustomerTransPackages> GetMovements(string start, string end);
+        public List<CustomerTransferredPackages> GetMovements(string start, string end);
         public void DeleteExpiredPackages();
         public List<PackageDto> BuildNormalPackageResponse(List<Package> packages);
-        public List<CustomerTransPackagesDto> BuildTransferredPackagesResponse(List<CustomerTransPackages> movements);
+        public List<CustomerTransferredPackagesDto> BuildTransferredPackagesResponse(List<CustomerTransferredPackages> movements);
     }
 }

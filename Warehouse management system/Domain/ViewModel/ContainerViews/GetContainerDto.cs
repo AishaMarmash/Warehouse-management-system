@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace Warehouse_management_system.Domain.ViewModel.Container
+﻿namespace Warehouse_management_system.Domain.ViewModel.Container
 {
     public class GetContainerDto
     {
