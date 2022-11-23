@@ -15,18 +15,18 @@ namespace Warehouse_management_system.Data.Repositories
         public List<Package> GetCurrentPackages()
         {
             var packages = _context.Packages
-                                   .Include(p => p.ScheduleProcess)
-                                   .Where(p => p.ScheduleProcess.ActualIn != null && 
-                                               p.ScheduleProcess.ActualOut == null)
+                                   .Include(package => package.ScheduleProcess)
+                                   .Where(package => package.ScheduleProcess.ActualIn != null &&
+                                                     package.ScheduleProcess.ActualOut == null)
                                    .ToList();
             return packages;
         }
         public List<Package> GetOutgoingPackages()
         {
             var packages = _context.Packages
-                                   .Include(p => p.ScheduleProcess)
-                                   .Where(p => p.ScheduleProcess.ActualIn != null && 
-                                               p.ScheduleProcess.ActualOut != null)
+                                   .Include(package => package.ScheduleProcess)
+                                   .Where(package => package.ScheduleProcess.ActualIn != null &&
+                                                     package.ScheduleProcess.ActualOut != null)
                                    .ToList();
             return packages;
         }
@@ -35,26 +35,26 @@ namespace Warehouse_management_system.Data.Repositories
             DateTime startDateTime = Convert.ToDateTime(start);
             DateTime endDateTime = Convert.ToDateTime(end);
             var customerTransPackages = _context.Customers
-                                        .Select(u => new CustomerTransferredPackages()
+                                        .Select(customer => new CustomerTransferredPackages()
                                                          {
-                                                            CustomerId = u.Id,
-                                                            CustomerName = u.FirstName + " " + u.MiddleName+ " " + u.LastName,
-                                                            packages = u.Packages.Where(p => (p.ScheduleProcess.ActualIn > startDateTime &&
-                                                                                              p.ScheduleProcess.ActualIn < endDateTime)||
-                                                                                             (p.ScheduleProcess.ActualOut > startDateTime &&
-                                                                                              p.ScheduleProcess.ActualOut < endDateTime))
-                                                                                 .ToList()
+                                                            CustomerId = customer.Id,
+                                                            CustomerName = customer.FirstName + " " + customer.MiddleName+ " " + customer.LastName,
+                                                            packages = customer.Packages.Where(package => (package.ScheduleProcess.ActualIn > startDateTime &&
+                                                                                                           package.ScheduleProcess.ActualIn < endDateTime)||
+                                                                                                          (package.ScheduleProcess.ActualOut > startDateTime &&
+                                                                                                           package.ScheduleProcess.ActualOut < endDateTime))
+                                                                                        .ToList()
                                                          })
-                                        .Where(u=>u.packages.Count > 0)
+                                        .Where(customer => customer.packages.Count > 0)
                                         .ToList();
             return customerTransPackages;
         }
         public void DeleteExpiredPackages()
         {
             var packages = _context.Packages
-                                   .Include(p => p.ScheduleProcess)
-                                   .Where(p => (p.ScheduleProcess.ActualIn == null && 
-                                                p.ScheduleProcess.ExpectedIn.AddDays(+3) < DateTime.Now))
+                                   .Include(package => package.ScheduleProcess)
+                                   .Where(package => (package.ScheduleProcess.ActualIn == null &&
+                                                      package.ScheduleProcess.ExpectedIn.AddDays(+3) < DateTime.Now))
                                    .ToList();
             _context.Packages.RemoveRange(packages);
             _context.SaveChanges();

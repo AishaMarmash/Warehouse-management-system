@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Warehouse_management_system.Domain.Models;
 using Warehouse_management_system.Domain.Repositories;
-using Warehouse_management_system.Models;
 
 namespace Warehouse_management_system.Data.Repositories
 {
@@ -15,10 +14,9 @@ namespace Warehouse_management_system.Data.Repositories
         public List<User> GetCustomers()
         {
             var customers = _context.Customers
-                                 .Include(c => c.Packages)
-                                 .ToList();
+                                    .Include(customer => customer.Packages)
+                                    .ToList();
             List<User> users = customers.Cast<User>().ToList();
-
             return users;
         }
     }

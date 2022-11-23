@@ -8,7 +8,7 @@ namespace Warehouse_management_system.Domain.Services
         public List<WarehouseLocation> GetFreeLocations(DateTime date);
         public void AddWarehouseLocation(WarehouseLocation warehouseLocation);
         public WarehouseLocation FindWarehouseLocation(int locationNumber);
-        public void UpdateLocation();
+        public void UpdateLocation(UpdateLocationDto newLocation, WarehouseLocation locationFromRepo);
         public List<GetLocationDto> BuildResponse(List<WarehouseLocation> locations);
     }
 }

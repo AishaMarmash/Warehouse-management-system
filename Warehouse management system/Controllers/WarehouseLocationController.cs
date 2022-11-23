@@ -40,11 +40,10 @@ namespace Warehouse_management_system.Controllers
             return Ok();
         }
         [HttpPut("{locationNumber}")]
-        public ActionResult UpdateLocation(int locationNumber, [FromBody] UpdateLocationDto recievedLocation)
+        public ActionResult UpdateLocation(int locationNumber, [FromBody] UpdateLocationDto newLocation)
         {
             var locationFromRepo = _warehouseLocationService.FindWarehouseLocation(locationNumber);
-            _mapper.Map(recievedLocation, locationFromRepo);
-            _warehouseLocationService.UpdateLocation();
+            _warehouseLocationService.UpdateLocation(newLocation, locationFromRepo);
             return Ok();
         }
     }

@@ -12,7 +12,7 @@ namespace Warehouse_management_system.Data.Repositories
         }
         public Container? GetContainer(string containerNumber)
         {
-            return _context.Containers.FirstOrDefault(c => c.ContainerNumber.Equals(containerNumber));
+            return _context.Containers.FirstOrDefault(container => container.ContainerNumber.Equals(containerNumber));
         }
         public void AddContainer(Container container)
         {

@@ -19,9 +19,9 @@ namespace Warehouse_management_system.Data.Repositories
                                                  location => !_context.SchedulingProcesses
                                                                       .Where(schedule => (date > schedule.ExpectedIn && 
                                                                              date < schedule.ExpectedOut))
-                                                               .Select(schedule => schedule.WarehouseLocationId)
-                                                               .Contains(location.Id)
-                                               ).ToList();
+                                                                      .Select(schedule => schedule.WarehouseLocationId)
+                                                                      .Contains(location.Id))
+                                         .ToList();
             if (freeWarehouses.Count == 0)
                 throw new Exception();
             return freeWarehouses;
@@ -33,12 +33,12 @@ namespace Warehouse_management_system.Data.Repositories
         }
         public WarehouseLocation FindWarehouseLocation(int locationNumber)
         {
-            var location = _context.WarehouseLocation.First(l => l.Id == locationNumber);
+            var location = _context.WarehouseLocation.First(location => location.Id == locationNumber);
             return location;
         }
         public void UpdateLocation()
         {
-            _context.SaveChanges(); ;
+            _context.SaveChanges();
         }
     }
 }

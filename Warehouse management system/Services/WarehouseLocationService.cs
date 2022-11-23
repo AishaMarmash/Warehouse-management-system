@@ -27,8 +27,9 @@ namespace Warehouse_management_system.Services
         {
             return _warehouseLocationRepository.FindWarehouseLocation(locationNumber);
         }
-        public void UpdateLocation()
+        public void UpdateLocation(UpdateLocationDto newLocation, WarehouseLocation locationFromRepo)
         {
+            _mapper.Map(newLocation, locationFromRepo);
             _warehouseLocationRepository.UpdateLocation();
         }
         public List<GetLocationDto> BuildResponse(List<WarehouseLocation> locations)

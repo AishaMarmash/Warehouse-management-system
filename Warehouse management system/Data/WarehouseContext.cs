@@ -8,9 +8,7 @@ namespace Warehouse_management_system.Data
     public class WarehouseContext : DbContext
     {
         public WarehouseContext(DbContextOptions options) : base(options)
-        {
-
-        }
+        {  }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             if (!options.IsConfigured)
